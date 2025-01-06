@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { fetchImages } from './services/api';
+// import MovieList from './components/MovieList/MovieList';
 
-function App() {
-  const [count, setCount] = useState(0)
+ function App() {
+  const [] = useState([]);
+  // const [page, setPage] = useState(1);
+  // const [query, setQuery] = useState("");
+  
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  // const getImagesData = async (newQuery, newPage = 1) => {
+  //   try {
+  //     setIsLoading(true);
+  //     setIsError(false);
+
+  //     const data = await fetchImages({ query: newQuery, page: newPage });
+      
+  //     setImages((prev) => (newPage === 1 ? data : [...prev, ...data]));
+  //   } catch (error) {
+  //     setIsError(true);
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+
+  // const handleChangeQuery = (newQuery) => {
+  //   if (newQuery === query) {
+  //     toast.error("Please enter a new search query!");
+  //     return;
+  //   }
+
+  //   setQuery(newQuery);
+  //   setPage(1);
+  //   setImages([]);
+  //   getImagesData(newQuery, 1); 
+  // };
+
+  // const handleChangePage = () => {
+  //   if (!isLoading) {
+  //     const nextPage = page + 1;
+  //     setPage(nextPage);
+  //     getImagesData(query, nextPage); 
+  //   }
+  // };
+
+  // return (
+  //   // <>
+  //   //   <MovieList />
+  //   // </>
+  // );
 }
 
-export default App
+export default App;
+  

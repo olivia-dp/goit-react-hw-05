@@ -17,5 +17,7 @@ export const fetchImages = async ({ query, page }) => {
       },
     }
     );
+    console.log(data.results);
+    
   return data.results;
 };
