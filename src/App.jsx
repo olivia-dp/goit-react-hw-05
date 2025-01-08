@@ -1,53 +1,26 @@
-import { useState } from 'react';
-import { fetchImages } from './services/api';
-// import MovieList from './components/MovieList/MovieList';
+import { Route, Routes } from 'react-router-dom';
+import HomePage from "../src/pages/HomePage"
+import MoviesPage from "../src/pages/MoviesPage"
+import MovieDetailsPage from "../src/pages/MovieDetailsPage"
+import MovieCast from "../src/components/MovieCast/MovieCast"
+import MovieReviews from "../src/components/MovieReviews/MovieReviews"
+import NotFoundPage from "../src/pages/NotFoundPage"
 
- function App() {
-  const [] = useState([]);
-  // const [page, setPage] = useState(1);
-  // const [query, setQuery] = useState("");
+
+
+const App = () => {
+  return (
+  <Routes>
+      <Route path='/' element={<HomePage />} />
+        <Route path='/movies' element={<MoviesPage />} />
+        <Route path='/movies/:movieId' element={<MovieDetailsPage />}>
+          <Route path='cast' element={<MovieCast />} />
+          <Route path='reviews' element={<MovieReviews />} />
+        </Route>
   
-
-  // const getImagesData = async (newQuery, newPage = 1) => {
-  //   try {
-  //     setIsLoading(true);
-  //     setIsError(false);
-
-  //     const data = await fetchImages({ query: newQuery, page: newPage });
-      
-  //     setImages((prev) => (newPage === 1 ? data : [...prev, ...data]));
-  //   } catch (error) {
-  //     setIsError(true);
-  //   } finally {
-  //     setIsLoading(false);
-  //   }
-  // };
-
-  // const handleChangeQuery = (newQuery) => {
-  //   if (newQuery === query) {
-  //     toast.error("Please enter a new search query!");
-  //     return;
-  //   }
-
-  //   setQuery(newQuery);
-  //   setPage(1);
-  //   setImages([]);
-  //   getImagesData(newQuery, 1); 
-  // };
-
-  // const handleChangePage = () => {
-  //   if (!isLoading) {
-  //     const nextPage = page + 1;
-  //     setPage(nextPage);
-  //     getImagesData(query, nextPage); 
-  //   }
-  // };
-
-  // return (
-  //   // <>
-  //   //   <MovieList />
-  //   // </>
-  // );
+        <Route path='*' element={<NotFoundPage />} />
+    </Routes>
+  )
 }
 
 export default App;
