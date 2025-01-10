@@ -1,12 +1,12 @@
 import React from 'react'
+import s from "./MovieCard.module.css"
 
 const MovieCard = ({ title, img }) => {
   const baseURL = 'https://image.tmdb.org/t/p/'
-  const imageUrl = `${baseURL}w500${img}`;
   return (
     <>
-      <div>{title}</div>
-      <img src={imageUrl} />
+      <img src={ `${baseURL}w300${img}`} />
+      <h2 className={s.title}>{title}</h2>
     </>
     
   )
