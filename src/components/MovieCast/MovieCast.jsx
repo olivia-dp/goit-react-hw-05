@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { fetchCastMovie } from '../../services/api'
+import s from "../MovieCast/MovieCast.module.css"
 
 const MovieCast = () => {
   const { movieId } = useParams();
@@ -22,17 +23,17 @@ const MovieCast = () => {
     <div>
       <section>
         Cast
-        <ul>
+        <ul className={s.list}>
           {cast.map(item => (
-            <li key={item.id}>
-              {item.popularity > 30 ?
+            <li key={item.id} className={s.listItem}>
+              
                 <div>
                   <img src={`${baseURL}w200${item.profile_path}`}/>
                   <p>{item.name}</p>
                   <p>{item.character}</p>
                   
                 </div>
-                : ""}
+            
               
             </li>
           ))}
