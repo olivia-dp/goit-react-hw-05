@@ -33,13 +33,15 @@ const baseURL = 'https://image.tmdb.org/t/p/'
     <div className={s.container}>
       <div className={s.imgBox}>
         <h2 className={s.title}>{movie.title}</h2>
-      <img src={`${baseURL}w500${movie.poster_path}`} />
+      <img src={`${baseURL}w300${movie.poster_path}`} />
       </div>
       <div className={s.infoBox}><p>Score: {movie.vote_average}</p>
       <p>Release date: {movie.release_date}</p>
-      <p>Overview: {movie.overview}</p>
+      <p>Overview: {movie.overview}</p>    
+        </div> 
+      </div>
       <div>
-         <nav>
+         <nav className={s.nav}>Additional information
         <ul>
           <li>
             <Link to='cast' className={s.link}>Cast</Link>
@@ -49,11 +51,9 @@ const baseURL = 'https://image.tmdb.org/t/p/'
           </li>
         </ul>
       </nav>
-        <Outlet />
+        
       </div>
-      </div>
-      </div>
-      
+      <Outlet />
       
       </>
   )

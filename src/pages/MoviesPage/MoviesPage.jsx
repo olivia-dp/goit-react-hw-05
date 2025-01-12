@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { fetchSearchMovie } from '../../services/api';
 import MovieList from '../../components/MovieList/MovieList';
+import s from "./MoviesPage.module.css"
 
 
 const MoviesPage = () => {
@@ -11,35 +12,25 @@ const MoviesPage = () => {
 
   const query = searchParams.get('query') ?? '';
 
-   useEffect(() => {
+ useEffect(() => {
+    const getData = async (newQuery) => {
+     
+        const data = await fetchSearchMovie({ query: newQuery });
+        setMovies(data); 
+    };
+
     if (query) {
       getData(query);
     }
   }, [query]);
-  
+
+
   const handleChangeQuery = (newQuery) => {
-   
-    searchParams.set('query', newQuery);
-    setSearchParams(searchParams);
-    setMovies([]);
-    getData(newQuery); 
-  };
-
-
-const getData = async (newQuery) => {
-    try {
-      const data = await fetchSearchMovie({ query: newQuery});
-      
-      setMovies((prev) => ([...prev, ...data]));
-    } catch (error) {
-      console.log(error);
-    } 
+    setSearchParams({ query: newQuery });
   };
 
  
-
- const onSubmit = values => {
-    console.log(values);
+  const onSubmit = (values) => {
     handleChangeQuery(values.query);
   };
 
@@ -48,11 +39,11 @@ const getData = async (newQuery) => {
   };
 
   return (
-    <div>MoviesPage
+    <div>
       <Formik initialValues={initialValues} onSubmit={onSubmit}>
         <Form>
-          <Field name='query' />
-          <button type='submit'>Search</button>
+          <Field name='query' className={s.input} />
+          <button type='submit' className={s.searchBtn}>Search</button>
         </Form>
       </Formik>
       <MovieList movies={ movies} />

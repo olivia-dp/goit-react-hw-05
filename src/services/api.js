@@ -21,21 +21,20 @@ export const fetchMovieById = async id => {
 
 export const fetchCastMovie = async id => {
 const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?language=en-US`, options);
-  console.log(data.cast);
+
   
   return data.cast;
 }
 
 export const fetchMovieReviews = async id => {
   const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${id}/reviews?language=en-US&page=1`, options);
-  console.log(data);
   
   return data.results;
 }
 
 export const fetchSearchMovie = async ({ query }) => {
   const { data } = await axios.get(`https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, options);
-  console.log(data);
+
   
   return data.results;
 }

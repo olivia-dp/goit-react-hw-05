@@ -1,8 +1,9 @@
 header {
-    background-color: rgb(101, 102, 102);
+    padding: 20px 30px;
+    border-bottom: 1px solid black;
 }
 .link {
-    color: white;
+    color: black;
     font-size: 26px;
     text-decoration: none;
 }
@@ -13,6 +14,6 @@ header {
 }
 
 .active {
-    color: black;
+    color: rgb(255, 0, 0);
     text-decoration: underline;
 }

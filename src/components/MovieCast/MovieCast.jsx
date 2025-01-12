@@ -22,7 +22,6 @@ const MovieCast = () => {
   return (
     <div>
       <section>
-        Cast
         <ul className={s.list}>
           {cast.map(item => (
             <li key={item.id} className={s.listItem}>
